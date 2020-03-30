@@ -22,8 +22,12 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 var Stats = function Stats(url) {
-  console.log("this is the ".concat(url));
-  var stats = Object(_utils_useStats__WEBPACK_IMPORTED_MODULE_1__["default"])(url.url);
+  // console.log(`this is the url: ${url}`)
+  var _useStats = Object(_utils_useStats__WEBPACK_IMPORTED_MODULE_1__["default"])(url.url),
+      stats = _useStats.stats,
+      loading = _useStats.loading,
+      error = _useStats.error;
+
   if (!stats) return __jsx("p", {
     __self: _this,
     __source: {
@@ -130,7 +134,10 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 function CountrySelector() {
   var _this = this;
 
-  var countries = Object(_utils_useStats__WEBPACK_IMPORTED_MODULE_1__["default"])("https://covid19.mathdro.id/api/countries");
+  var _useStats = Object(_utils_useStats__WEBPACK_IMPORTED_MODULE_1__["default"])("https://covid19.mathdro.id/api/countries"),
+      countries = _useStats.stats,
+      loading = _useStats.loading,
+      error = _useStats.error;
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("USA"),
       selectionCountry = _useState[0],
@@ -140,24 +147,31 @@ function CountrySelector() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 8,
+      lineNumber: 10,
       columnNumber: 26
     }
-  }, "Loading..."); // console.log(`this is new: ${countries.name}`)
+  }, "Loading...");
+  if (error) return __jsx("p", {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 11,
+      columnNumber: 21
+    }
+  }, "There is and Error..."); // console.log(`this is new: ${countries.name}`)
 
-  console.log(countries);
   return __jsx("div", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 13,
+      lineNumber: 16,
       columnNumber: 5
     }
   }, __jsx("h2", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 14,
+      lineNumber: 17,
       columnNumber: 7
     }
   }, "currently showing: ", selectionCountry), __jsx("select", {
@@ -167,17 +181,18 @@ function CountrySelector() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15,
+      lineNumber: 18,
       columnNumber: 7
     }
   }, countries.countries.map(function (country) {
     return __jsx("option", {
+      selected: selectionCountry === country.iso3,
       key: country.name,
       value: country.iso3,
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 17,
+        lineNumber: 20,
         columnNumber: 11
       }
     }, country.name);
@@ -186,7 +201,7 @@ function CountrySelector() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 22,
+      lineNumber: 29,
       columnNumber: 7
     }
   }));
@@ -1055,7 +1070,17 @@ var useStats = function useStats(url) {
       stats = _useState[0],
       setStats = _useState[1];
 
+  var _useState2 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(false),
+      loading = _useState2[0],
+      setLoading = _useState2[1];
+
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(),
+      error = _useState3[0],
+      setError = _useState3[1];
+
   Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(function () {
+    console.log("mounting or fetching");
+
     function fetchData() {
       var data;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function fetchData$(_context) {
@@ -1063,34 +1088,35 @@ var useStats = function useStats(url) {
           switch (_context.prev = _context.next) {
             case 0:
               console.log("fetching data");
-              _context.prev = 1;
-              _context.next = 4;
+              setLoading(true);
+              setError();
+              _context.next = 5;
               return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(fetch(url).then(function (res) {
                 return res.json();
+              })["catch"](function (err) {
+                return setError(err);
               }));
 
-            case 4:
+            case 5:
               data = _context.sent;
               setStats(data);
-              _context.next = 11;
-              break;
+              setLoading(false);
 
             case 8:
-              _context.prev = 8;
-              _context.t0 = _context["catch"](1);
-              console.log(_context.t0);
-
-            case 11:
             case "end":
               return _context.stop();
           }
         }
-      }, null, null, [[1, 8]], Promise);
+      }, null, null, null, Promise);
     }
 
     fetchData();
-  }, []);
-  return stats;
+  }, [url]);
+  return {
+    stats: stats,
+    loading: loading,
+    error: error
+  };
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (useStats);

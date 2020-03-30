@@ -113,8 +113,12 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 const Stats = url => {
-  console.log(`this is the ${url}`);
-  const stats = Object(_utils_useStats__WEBPACK_IMPORTED_MODULE_1__["default"])(url.url);
+  // console.log(`this is the url: ${url}`)
+  const {
+    stats,
+    loading,
+    error
+  } = Object(_utils_useStats__WEBPACK_IMPORTED_MODULE_1__["default"])(url.url);
   if (!stats) return __jsx("p", {
     __self: undefined,
     __source: {
@@ -219,7 +223,11 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 function CountrySelector() {
-  const countries = Object(_utils_useStats__WEBPACK_IMPORTED_MODULE_1__["default"])("https://covid19.mathdro.id/api/countries");
+  const {
+    stats: countries,
+    loading,
+    error
+  } = Object(_utils_useStats__WEBPACK_IMPORTED_MODULE_1__["default"])("https://covid19.mathdro.id/api/countries");
   const {
     0: selectionCountry,
     1: setSelectionCountry
@@ -228,24 +236,31 @@ function CountrySelector() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 8,
+      lineNumber: 10,
       columnNumber: 26
     }
-  }, "Loading..."); // console.log(`this is new: ${countries.name}`)
+  }, "Loading...");
+  if (error) return __jsx("p", {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 11,
+      columnNumber: 21
+    }
+  }, "There is and Error..."); // console.log(`this is new: ${countries.name}`)
 
-  console.log(countries);
   return __jsx("div", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 13,
+      lineNumber: 16,
       columnNumber: 5
     }
   }, __jsx("h2", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 14,
+      lineNumber: 17,
       columnNumber: 7
     }
   }, "currently showing: ", selectionCountry), __jsx("select", {
@@ -253,16 +268,17 @@ function CountrySelector() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15,
+      lineNumber: 18,
       columnNumber: 7
     }
   }, countries.countries.map(country => __jsx("option", {
+    selected: selectionCountry === country.iso3,
     key: country.name,
     value: country.iso3,
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 17,
+      lineNumber: 20,
       columnNumber: 11
     }
   }, country.name))), __jsx(_Stats__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -270,7 +286,7 @@ function CountrySelector() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 22,
+      lineNumber: 29,
       columnNumber: 7
     }
   }));
@@ -348,21 +364,33 @@ const useStats = url => {
     0: stats,
     1: setStats
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])();
+  const {
+    0: loading,
+    1: setLoading
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
+  const {
+    0: error,
+    1: setError
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])();
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    console.log("mounting or fetching");
+
     async function fetchData() {
       console.log("fetching data");
-
-      try {
-        const data = await fetch(url).then(res => res.json());
-        setStats(data);
-      } catch (error) {
-        console.log(error);
-      }
+      setLoading(true);
+      setError();
+      const data = await fetch(url).then(res => res.json()).catch(err => setError(err));
+      setStats(data);
+      setLoading(false);
     }
 
     fetchData();
-  }, []);
-  return stats;
+  }, [url]);
+  return {
+    stats,
+    loading,
+    error
+  };
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (useStats);

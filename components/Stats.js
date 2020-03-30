@@ -3,8 +3,8 @@ import useStats from "../utils/useStats"
 import IndexPage from "../pages/index"
 
 const Stats = url => {
-  console.log(`this is the ${url}`)
-  const stats = useStats(url.url)
+  // console.log(`this is the url: ${url}`)
+  const { stats, loading, error } = useStats(url.url)
   if (!stats) return <p>Loading...</p>
   // console.log(`this is the ${stats}`)
   // console.log(`this is url ${url.url}`)

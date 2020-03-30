@@ -3,18 +3,25 @@ import { useState } from "react"
 import Stats from "./Stats"
 
 function CountrySelector() {
-  const countries = useStats("https://covid19.mathdro.id/api/countries")
+  const { stats: countries, loading, error } = useStats(
+    "https://covid19.mathdro.id/api/countries"
+  )
   const [selectionCountry, setSelectionCountry] = useState("USA")
   if (!countries) return <p>Loading...</p>
+  if (error) return <p>There is and Error...</p>
+
   // console.log(`this is new: ${countries.name}`)
 
-  console.log(countries)
   return (
     <div>
       <h2>currently showing: {selectionCountry}</h2>
       <select onChange={e => setSelectionCountry(e.target.value)}>
         {countries.countries.map(country => (
-          <option key={country.name} value={country.iso3}>
+          <option
+            selected={selectionCountry === country.iso3}
+            key={country.name}
+            value={country.iso3}
+          >
             {country.name}
           </option>
         ))}
