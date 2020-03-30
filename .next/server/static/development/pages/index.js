@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -113,7 +113,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 const Stats = url => {
-  console.log(url);
+  console.log(`this is the ${url}`);
   const stats = Object(_utils_useStats__WEBPACK_IMPORTED_MODULE_1__["default"])(url.url);
   if (!stats) return __jsx("p", {
     __self: undefined,
@@ -231,20 +231,21 @@ function CountrySelector() {
       lineNumber: 8,
       columnNumber: 26
     }
-  }, "Loading...");
+  }, "Loading..."); // console.log(`this is new: ${countries.name}`)
+
   console.log(countries);
   return __jsx("div", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 12,
+      lineNumber: 13,
       columnNumber: 5
     }
   }, __jsx("h2", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 13,
+      lineNumber: 14,
       columnNumber: 7
     }
   }, "currently showing: ", selectionCountry), __jsx("select", {
@@ -252,7 +253,7 @@ function CountrySelector() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 14,
+      lineNumber: 15,
       columnNumber: 7
     }
   }, countries.countries.map(country => __jsx("option", {
@@ -261,7 +262,7 @@ function CountrySelector() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16,
+      lineNumber: 17,
       columnNumber: 11
     }
   }, country.name))), __jsx(_Stats__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -269,7 +270,7 @@ function CountrySelector() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21,
+      lineNumber: 22,
       columnNumber: 7
     }
   }));
@@ -368,7 +369,7 @@ const useStats = url => {
 
 /***/ }),
 
-/***/ 3:
+/***/ 4:
 /*!******************************!*\
   !*** multi ./pages/index.js ***!
   \******************************/

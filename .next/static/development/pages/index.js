@@ -22,7 +22,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 var Stats = function Stats(url) {
-  console.log(url);
+  console.log("this is the ".concat(url));
   var stats = Object(_utils_useStats__WEBPACK_IMPORTED_MODULE_1__["default"])(url.url);
   if (!stats) return __jsx("p", {
     __self: _this,
@@ -143,20 +143,21 @@ function CountrySelector() {
       lineNumber: 8,
       columnNumber: 26
     }
-  }, "Loading...");
+  }, "Loading..."); // console.log(`this is new: ${countries.name}`)
+
   console.log(countries);
   return __jsx("div", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 12,
+      lineNumber: 13,
       columnNumber: 5
     }
   }, __jsx("h2", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 13,
+      lineNumber: 14,
       columnNumber: 7
     }
   }, "currently showing: ", selectionCountry), __jsx("select", {
@@ -166,7 +167,7 @@ function CountrySelector() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 14,
+      lineNumber: 15,
       columnNumber: 7
     }
   }, countries.countries.map(function (country) {
@@ -176,7 +177,7 @@ function CountrySelector() {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 16,
+        lineNumber: 17,
         columnNumber: 11
       }
     }, country.name);
@@ -185,7 +186,7 @@ function CountrySelector() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21,
+      lineNumber: 22,
       columnNumber: 7
     }
   }));
@@ -1096,7 +1097,7 @@ var useStats = function useStats(url) {
 
 /***/ }),
 
-/***/ 1:
+/***/ 2:
 /*!***************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=%2FUsers%2FAereli%2FDocuments%2FPrograms%2Fcovid-19%2Fpages%2Findex.js ***!
   \***************************************************************************************************************************************/
@@ -1119,5 +1120,5 @@ module.exports = dll_2adc2403d89adc16ead0;
 
 /***/ })
 
-},[[1,"static/runtime/webpack.js"]]]);
+},[[2,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=index.js.map

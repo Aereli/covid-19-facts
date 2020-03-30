@@ -6,6 +6,7 @@ function CountrySelector() {
   const countries = useStats("https://covid19.mathdro.id/api/countries")
   const [selectionCountry, setSelectionCountry] = useState("USA")
   if (!countries) return <p>Loading...</p>
+  // console.log(`this is new: ${countries.name}`)
 
   console.log(countries)
   return (
