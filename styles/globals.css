@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css?family=Advent+Pro&display=swap");
+
+html {
+  font-family: "Advent Pro", sans-serif;
+  /* background-color: #4c6c77; */
+  background-image: url("../styles/coronavirus.jpg");
+  background-size: auto;
+  text-transform: uppercase;
+
+  /* font-size: 2rem; */
+  /* color: blue; */
+}
+
+select {
+  height: 2rem;
+  width: 50%;
+  outline: none;
+  text-align: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  background-color: #18121e;
+  color: #eac67a;
+  border-radius: 0;
+}
+
+h2 {
+  margin: 0;
+}
+
+.world-header {
+  text-align: center;
+  margin: 0.5rem;
+}
