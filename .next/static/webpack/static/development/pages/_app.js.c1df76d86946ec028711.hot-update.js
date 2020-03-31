@@ -1,0 +1,36 @@
+webpackHotUpdate("static/development/pages/_app.js",{
+
+/***/ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./styles/globals.css":
+/*!****************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ref--5-oneOf-5-1!./node_modules/postcss-loader/src??__nextjs_postcss!./styles/globals.css ***!
+  \****************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(true);
+// Imports
+var ___CSS_LOADER_GET_URL_IMPORT___ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/getUrl.js */ "./node_modules/css-loader/dist/runtime/getUrl.js");
+var ___CSS_LOADER_URL_PURE_IMPORT_0___ = __webpack_require__(/*! ../styles/coronavirus.jpg */ "./styles/coronavirus.jpg");
+var ___CSS_LOADER_URL_PURE_IMPORT_1___ = __webpack_require__(/*! ../styles/github-logo.png */ "./styles/github-logo.png");
+exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Advent+Pro&display=swap);"]);
+var ___CSS_LOADER_URL_IMPORT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_PURE_IMPORT_0___);
+var ___CSS_LOADER_URL_IMPORT_1___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_PURE_IMPORT_1___);
+// Module
+exports.push([module.i, "html {\n  font-family: \"Advent Pro\", sans-serif;\n  /* background-color: #4c6c77; */\n  background-image: url(" + ___CSS_LOADER_URL_IMPORT_0___ + ");\n  background-size: auto;\n  text-transform: uppercase;\n\n  /* font-size: 2rem; */\n  /* color: blue; */\n}\n\nselect {\n  height: 2rem;\n  width: 50%;\n  outline: none;\n  text-align: center;\n  justify-content: center;\n  font-size: 1.5rem;\n  background-color: #18121e;\n  color: #eac67a;\n  border-radius: 0;\n}\n\nh2 {\n  margin: 0;\n}\n\n.world-header {\n  text-align: center;\n  margin: 0.5rem;\n}\n\nfooter {\n  background-image: url(" + ___CSS_LOADER_URL_IMPORT_1___ + ");\n}\n", "",{"version":3,"sources":["globals.css"],"names":[],"mappings":"AAEA;EACE,qCAAqC;EACrC,+BAA+B;EAC/B,oDAAkD;EAClD,qBAAqB;EACrB,yBAAyB;;EAEzB,qBAAqB;EACrB,iBAAiB;AACnB;;AAEA;EACE,YAAY;EACZ,UAAU;EACV,aAAa;EACb,kBAAkB;EAClB,uBAAuB;EACvB,iBAAiB;EACjB,yBAAyB;EACzB,cAAc;EACd,gBAAgB;AAClB;;AAEA;EACE,SAAS;AACX;;AAEA;EACE,kBAAkB;EAClB,cAAc;AAChB;;AAEA;EACE,oDAAkD;AACpD","file":"globals.css","sourcesContent":["@import url(\"https://fonts.googleapis.com/css?family=Advent+Pro&display=swap\");\n\nhtml {\n  font-family: \"Advent Pro\", sans-serif;\n  /* background-color: #4c6c77; */\n  background-image: url(\"../styles/coronavirus.jpg\");\n  background-size: auto;\n  text-transform: uppercase;\n\n  /* font-size: 2rem; */\n  /* color: blue; */\n}\n\nselect {\n  height: 2rem;\n  width: 50%;\n  outline: none;\n  text-align: center;\n  justify-content: center;\n  font-size: 1.5rem;\n  background-color: #18121e;\n  color: #eac67a;\n  border-radius: 0;\n}\n\nh2 {\n  margin: 0;\n}\n\n.world-header {\n  text-align: center;\n  margin: 0.5rem;\n}\n\nfooter {\n  background-image: url(\"../styles/github-logo.png\");\n}\n"]}]);
+
+
+/***/ }),
+
+/***/ "./styles/github-logo.png":
+/*!********************************!*\
+  !*** ./styles/github-logo.png ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "static/media/github-logo.9875d956b800012f82aae268cfee4773.png";
+
+/***/ })
+
+})
+//# sourceMappingURL=_app.js.c1df76d86946ec028711.hot-update.js.map

@@ -22,6 +22,9 @@ const IndexPage = () => {
       <h2 className="world-header">In the World</h2>
       <Stats url="https://covid19.mathdro.id/api/" />
       <CountrySelector />
+      <footer>
+        <a>Github</a>
+      </footer>
     </Global>
   )
 }
