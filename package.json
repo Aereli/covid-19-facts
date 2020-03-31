@@ -1,13 +1,10 @@
 {
-
   "name": "yes",
   "version": "1.0.0",
   "description": "virus-api",
   "main": "index.js",
   "scripts": {
-    "dev": "next",
-    "build": "next build && next export",
-    "start": "serve ./out"
+    "start": "next"
   },
   "author": "",
   "license": "ISC",
